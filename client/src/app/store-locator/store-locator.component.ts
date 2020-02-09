@@ -14,6 +14,14 @@ export class StoreLocatorComponent implements OnInit {
  
   map;
   store;
+  icon = {
+    icon: L.icon({
+      iconSize: [ 25, 41 ],
+      iconAnchor: [ 13, 0 ],
+      // specify the path here
+      iconUrl: require("leaflet/dist/images/marker-icon.png"),
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+  })};
 
   constructor(private storesService: StoresService, private router: Router, private route: ActivatedRoute) { }
 
@@ -44,7 +52,7 @@ export class StoreLocatorComponent implements OnInit {
         var lat : number = store.latitude;
 
         var latlng = L.latLng({lat: lat, lng: long})
-        var marker = L.marker(latlng)
+        var marker = L.marker(latlng, this.icon)
         marker.on('click', () =>{ 
           this.storesService.getStoreAddress(store).subscribe((location) =>{
             console.log("hello",location)
@@ -55,6 +63,8 @@ export class StoreLocatorComponent implements OnInit {
         })
         marker.addTo(this.map);
       }
+      this.map.invalidateSize()
+
     })
   }
 

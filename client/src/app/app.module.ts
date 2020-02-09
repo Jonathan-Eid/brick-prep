@@ -17,13 +17,15 @@ import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoreLocatorComponent,
     DietComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
