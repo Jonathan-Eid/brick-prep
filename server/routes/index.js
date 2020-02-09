@@ -29,13 +29,20 @@ const {
      var dietCollection =  db.collection('diets')
      // var test=await (dietCollection.findOne({Dinner:Array}))
      // var test=await (dietCollection.findOne({Dinner:Array}))
-     var test=await (dietCollection.find(
+     var test=await dietCollection.aggregate([
        {
-         $and: [
-            {"Name": name}, {[meal]:{$exists: true}}
-         ]
-      }
-       )
+        $match:{
+          "Name": name
+        }
+       },
+       {
+        $lookup:{
+          from:'recipe',
+          localField: meal,
+          foreignField: '_id',
+          as: "recipes"
+         }
+      }]
        )
      var recipe = await recipeCollection.findOne({_id: "Grilled Lobster"})
      test = await test.asArray()
@@ -59,10 +66,8 @@ const {
      var dietCollection =  db.collection('diets')
      // var test=await (dietCollection.findOne({Dinner:Array}))
      // var test=await (dietCollection.findOne({Dinner:Array}))
-     var test=await (recipeCollection.find(
-        {oid:"_id"}
-       )
-       )
+     var test=await recipeCollection.findById(oid)
+       
     //  var recipe = await recipeCollection.findOne({_id: "Grilled Lobster"})
      test = await test.asArray()
   

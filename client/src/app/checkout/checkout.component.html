@@ -1,1 +1,15 @@
-<p>checkout works!</p>
+
+
+
+
+<div *ngIf="type == 'pickup' && address">
+    <h2 mat-display-1>Pickup at the store:</h2>
+    <div body-1>
+        {{this.address.street}}
+        <br>
+        {{this.address.city}}
+        <br>  
+        <div>{{this.address.country}} {{this.address.zip}} </div>
+    </div>
+
+</div>
