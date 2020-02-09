@@ -1,0 +1,29 @@
+<mat-list>
+    <h2 mat-display-1>How many days of food?</h2>
+    <mat-radio-group
+    [(ngModel)]='day'>
+    <mat-list-item *ngFor='let num of days'>
+        <mat-radio-button [value]='num'>{{num}}</mat-radio-button>
+      <mat-icon mat-list-icon></mat-icon>
+    </mat-list-item> 
+</mat-radio-group>
+<mat-divider></mat-divider>
+<h2 mat-display-1>How many meals a day?</h2>
+
+        <mat-radio-group
+        [(ngModel)]='meal'>
+        <mat-list-item *ngFor='let num of meals'>
+            <mat-radio-button [value]='num'>{{num}}</mat-radio-button>
+        <mat-icon mat-list-icon></mat-icon>
+        </mat-list-item> 
+        </mat-radio-group>
+<mat-divider></mat-divider>
+
+    <h2 mat-display-1>Alcohol</h2>
+        <mat-list-item>
+            <mat-checkbox [(ngModel)]="alcohol"> Check for Alcohol </mat-checkbox>
+        </mat-list-item> 
+  </mat-list>
+<br>
+
+  <button mat-raised-button color="primary">Select Store</button> 

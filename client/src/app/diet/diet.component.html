@@ -1,0 +1,25 @@
+<mat-list>
+    <h2 mat-display-1>Select Diet Type!</h2>
+    <mat-radio-group
+    [(ngModel)]='diet'>
+    <mat-list-item *ngFor='let type of diets'>
+        <mat-radio-button [value]='type'>{{type}}</mat-radio-button>
+      <mat-icon mat-list-icon></mat-icon>
+    </mat-list-item> 
+</mat-radio-group>
+<mat-divider></mat-divider>
+
+    <h2 mat-display-1>Any Allergies?</h2>
+        <mat-list-item>
+            <mat-checkbox [(ngModel)]="nuts"> Nuts </mat-checkbox>
+        </mat-list-item> 
+        <mat-list-item>
+            <mat-checkbox [(ngModel)]="soy"> Soy </mat-checkbox>
+        </mat-list-item> 
+        <mat-list-item>
+            <mat-checkbox [(ngModel)]="shellfish"> Shellfish </mat-checkbox>
+        </mat-list-item> 
+  </mat-list>
+<br>
+
+  <button (click)="subscriptionPage()" [disabled]='isValid()' mat-raised-button color="primary">Select Store</button> 
