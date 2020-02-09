@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'', component: StoreLocatorComponent},
   {path:'diet/:store', component: DietComponent},
   {path: 'subscription/:store/:diet/:allergies', component: SubscriptionComponent},
-  {path: 'checkout/:store/:diet/:allergies/:days/:meals/:alcohol', component: CheckoutComponent}
+  {path: 'checkout/:store/:diet/:allergies/:days/:meals/:alcohol/:type', component: CheckoutComponent}
 
 ];
 

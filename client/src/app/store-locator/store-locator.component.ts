@@ -4,7 +4,6 @@ import * as L from "leaflet";
 import { StoresService } from "../stores.service";
 import { Router, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-store-locator',
   templateUrl: './store-locator.component.html',
@@ -19,8 +18,8 @@ export class StoreLocatorComponent implements OnInit {
       iconSize: [ 25, 41 ],
       iconAnchor: [ 13, 0 ],
       // specify the path here
-      iconUrl: require("leaflet/dist/images/marker-icon.png"),
-      shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+      iconUrl: "leaflet/marker-icon.png",
+      shadowUrl: "leaflet/marker-shadow.png"
   })};
 
   constructor(private storesService: StoresService, private router: Router, private route: ActivatedRoute) { }
