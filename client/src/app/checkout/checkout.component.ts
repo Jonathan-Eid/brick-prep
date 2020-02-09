@@ -25,7 +25,6 @@ export class CheckoutComponent implements OnInit {
   pairing;
 
   constructor(private route: ActivatedRoute, private router: Router, private storeService: StoresService, private changeRef: ChangeDetectorRef, private http: HttpClient) { 
-    this.days = this.route.snapshot.params['days']
   }
 
   async ngOnInit() {
@@ -36,6 +35,7 @@ export class CheckoutComponent implements OnInit {
     console.log("Days",this.days)
     this.meals = this.route.snapshot.params['meals'];
     this.type = this.route.snapshot.params['type'];
+    this.days = this.route.snapshot.params['days']
 
 
     this.getAddress({number: this.storeNum});
@@ -71,13 +71,13 @@ export class CheckoutComponent implements OnInit {
             console.log(index,data)
             this.food.push(data)
             this.pairings.push(data['Pairing'])
-            if(index==this.days-1 && this.alcohol){
-              console.log("GOT SQUARE")
-              this.calculateVelocity()
+            if(index==this.days-1 && this.alcohol=="true"){
+              console.log("GOT SQUARE");
+              this.calculateVelocity();
             }
-          })
+          }) 
         }
-      }else if(this.alcohol){
+      }else if(this.alcohol=="true"){
         console.log("GOT HERE")
         this.calculateVelocity()
       }
