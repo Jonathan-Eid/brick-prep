@@ -11,7 +11,7 @@ export class SubscriptionComponent implements OnInit {
   day;
   days = [5,7];
   meal;
-  meals = [1,2,3]
+  meals = [1,2]
   alcohol;
 
   constructor() { }

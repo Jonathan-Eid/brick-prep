@@ -1,14 +1,29 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-
-
-
-
+var client = require('../utils/mongoUtil').client
+const db =  require('../utils/mongoUtil').db
+const {
+  AnonymousCredential
+} = require('mongodb-stitch-server-sdk');
 
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
+  
+  client.auth.loginWithCredential(new AnonymousCredential()).then( async user => {
+    console.log(`logged in anonymously as user ${user.id}`)
+    var recipeCollection =  db.collection('recipe')
+
+    var recipe = await recipeCollection.findOne()
+
+    console.log(recipe)
+
+  });
+
+  client.close();
+
+
   res.send('respond with a resource');
 });
 
