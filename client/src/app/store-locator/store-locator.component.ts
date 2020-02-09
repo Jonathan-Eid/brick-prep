@@ -4,7 +4,6 @@ import * as L from "leaflet";
 import { StoresService } from "../stores.service";
 import { Router, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-store-locator',
   templateUrl: './store-locator.component.html',
@@ -14,6 +13,14 @@ export class StoreLocatorComponent implements OnInit {
  
   map;
   store;
+  icon = {
+    icon: L.icon({
+      iconSize: [ 25, 41 ],
+      iconAnchor: [ 13, 0 ],
+      // specify the path here
+      iconUrl: "leaflet/marker-icon.png",
+      shadowUrl: "leaflet/marker-shadow.png"
+  })};
 
   constructor(private storesService: StoresService, private router: Router, private route: ActivatedRoute) { }
 
@@ -44,7 +51,7 @@ export class StoreLocatorComponent implements OnInit {
         var lat : number = store.latitude;
 
         var latlng = L.latLng({lat: lat, lng: long})
-        var marker = L.marker(latlng)
+        var marker = L.marker(latlng, this.icon)
         marker.on('click', () =>{ 
           this.storesService.getStoreAddress(store).subscribe((location) =>{
             console.log("hello",location)
@@ -55,6 +62,8 @@ export class StoreLocatorComponent implements OnInit {
         })
         marker.addTo(this.map);
       }
+      this.map.invalidateSize()
+
     })
   }
 

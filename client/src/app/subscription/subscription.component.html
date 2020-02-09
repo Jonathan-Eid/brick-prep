@@ -26,4 +26,5 @@
   </mat-list>
 <br>
 
-  <button mat-raised-button color="primary">Select Store</button> 
+  <button mat-raised-button (click)="checkout('pickup')" [disabled]="pickupDisabled()" color="primary">Pickup</button> 
+  <button mat-raised-button (click)="checkout('delivery')" [disabled]="deliveryDisabled()" color="primary">Delivery</button> 
