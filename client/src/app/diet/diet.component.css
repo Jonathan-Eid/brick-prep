@@ -1,0 +1,10 @@
+.diet-radio-group{
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.allergy-group{
+    margin: 15px 0; 
+    padding-left: 35px;
+}
