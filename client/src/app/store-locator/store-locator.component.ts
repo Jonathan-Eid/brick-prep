@@ -45,7 +45,7 @@ export class StoreLocatorComponent implements OnInit {
 
         var latlng = L.latLng({lat: lat, lng: long})
         var marker = L.marker(latlng)
-        marker.on('click', () =>{
+        marker.on('click', () =>{ 
           this.storesService.getStoreAddress(store).subscribe((location) =>{
             console.log("hello",location)
             var newStore = store
@@ -53,7 +53,7 @@ export class StoreLocatorComponent implements OnInit {
             this.store=newStore
           })
         })
-        marker.addTo(this.map)
+        marker.addTo(this.map);
       }
     })
   }
