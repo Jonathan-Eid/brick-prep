@@ -1,14 +1,18 @@
 
+<h1 style="margin-left: 25%; padding-left: 15px; ">Thank you for your order</h1>
+ 
+<mat-grid-list cols="4" >
+    <mat-grid-tile *ngFor="let food of food">
+        <mat-card>
+                <img mat-card-image src="{{food.Pic}}"  height="300px">
+                <mat-card-content mat-display-1>
+                    {{food.Name}}
+                </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 
 
-<mat-card-title style="margin-top: 3%; margin-left: 25%;">Thank You For Your Order!</mat-card-title>
-<mat-card >
-    <div id="recipe">
-        
-        <img src="https://assets-prd-weg.unataops.com/web/recipe_header/837139526d4b4bf3a69dd603a0d12155.jpg" width="300px" height="300px" style="margin-left: 20%;">
-        <img src="https://assets-prd-weg.unataops.com/web/recipe_header/85a52b4e49a048ac92d15372e2765302.jpg" width="300px" height="300px" style="margin-left: 15%;">
-    </div>
-</mat-card>
 
 
 <div *ngIf="type == 'pickup' && address" style="margin-left: 25%;">

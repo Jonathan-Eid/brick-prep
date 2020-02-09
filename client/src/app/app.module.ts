@@ -18,6 +18,8 @@ import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatButtonModule, 
     MatRadioModule,
     MatCheckboxModule,
+    MatGridListModule,
     FormsModule,
     LeafletModule.forRoot()
   ],

@@ -10,7 +10,7 @@ export class SubscriptionComponent implements OnInit {
 
 
   day;
-  days = [5,7];
+  days = [3,4,5];
   meal;
   meals = [1,2];
   alcohol = false; 

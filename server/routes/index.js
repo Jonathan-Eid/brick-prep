@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var ObjectID = require('mongodb').ObjectID
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,20 +31,15 @@ const {
      var dietCollection =  db.collection('diets')
      // var test=await (dietCollection.findOne({Dinner:Array}))
      // var test=await (dietCollection.findOne({Dinner:Array}))
-     var test=await dietCollection.aggregate([
-       {
-        $match:{
-          "Name": name
-        }
-       },
-       {
-        $lookup:{
-          from:'recipe',
-          localField: meal,
-          foreignField: '_id',
-          as: "recipes"
-         }
-      }]
+     var test=await dietCollection.find({
+
+       $and:[{'Name':name},{[meal]:{$exists:true}}]
+
+
+       
+      }
+       
+      
        )
      var recipe = await recipeCollection.findOne({_id: "Grilled Lobster"})
      test = await test.asArray()
@@ -55,9 +52,7 @@ const {
  
  /*GET users listing. */
  router.get('/recipe/:_id', async function(req, res, next) {
-   var oid = req.params._id
-   console.log('id: '+req.params._id)
-   console.log('oid: '+ oid);
+   var oid = ObjectID(req.params._id)
    client.auth.loginWithCredential(new AnonymousCredential()).then( async user => {
      console.log(`logged in anonymously as user ${user.id}`)
      // var test = await db.collection.find({"omnivore":0}).pretty()
@@ -66,10 +61,11 @@ const {
      var dietCollection =  db.collection('diets')
      // var test=await (dietCollection.findOne({Dinner:Array}))
      // var test=await (dietCollection.findOne({Dinner:Array}))
-     var test=await recipeCollection.findById(oid)
+     var test=await recipeCollection.findOne({_id : oid})
+
+     console.log(test)
        
     //  var recipe = await recipeCollection.findOne({_id: "Grilled Lobster"})
-     test = await test.asArray()
   
      res.send(test)
    });

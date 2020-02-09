@@ -10,10 +10,17 @@ export class StoresService {
 
    }
 
+   
 
 
-   getRecipes(meal, diet){
+   getDiet(meal, diet){
     var url = `http://localhost:3001/diet/${meal}/${diet}`
+   
+    return this.http.get(url);
+   }
+
+   getRecipe(id){
+    var url = `http://localhost:3001/recipe/${id}`
    
     return this.http.get(url);
    }
