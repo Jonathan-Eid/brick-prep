@@ -13,7 +13,7 @@ export class DietComponent implements OnInit {
   nuts;
   soy;
   shellfish;
-  diets = ['Omnivore','Vegan', 'Keto']
+  diets = ['Omnivore','Vegan']
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
