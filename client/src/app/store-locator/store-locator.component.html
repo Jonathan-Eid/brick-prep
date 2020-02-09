@@ -6,7 +6,7 @@
         Choose a store!
     </mat-card-title>
     <mat-card-content>
-        <div *ngIf="store != 'undefined'">  
+        <div *ngIf="store">  
         {{this.store.name}}
         <br>
         {{this.store.address.street}}
@@ -14,8 +14,7 @@
         {{this.store.address.city}}
         <br>
         <div>{{this.store.address.country}} {{this.store.address.zip}} </div>
-        </div>
-        <div *ngIf="store != 'undefined'">
+
             <button (click)="dietPage()" mat-raised-button color="primary">Select Store</button> 
         </div>
 
