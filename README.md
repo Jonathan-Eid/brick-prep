@@ -1,4 +1,4 @@
-# Hackathon Winner for "Most impactful to RIT student lives"!
+# BrickHack 6 Hackathon Winner for "Most impactful to RIT student lives"!
 
 https://devpost.com/software/brickpack
 
