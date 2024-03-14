@@ -11,20 +11,3 @@ BrickHack 6 at Rochester Institute of Technology was my first hackathon. I was g
 I suggested the meal prep service, and it took some back and forth of thinking about other ideas before we decided on the meal prep service. I would act as a mentor to the less experienced team members, brushing them up on the technology we were using, while also allocating the other team members to their strengths. We built the frontend and backend using AngularJS and Express in Typescript respectively. The database used was MongoDB.
 
 We won the title for "Most impactful to RIT student lives" and honorable mention for "Most Commercially Viable Product"
-
-# Run instructions:
-
-
-git clone 
-
-cd ./brick-prep/server/
-npm i
-npm start
-
-
-cd ../client
-npm i -g @angular/cli
-npm i
-npm start
-
-navigate to localhost:4200
